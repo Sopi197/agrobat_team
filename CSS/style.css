@@ -1,0 +1,1124 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+/* все padding обнуляются */
+*,
+*:before,
+*:after {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,
+:active {
+	outline: none;
+}
+a:focus,
+a:active {
+	outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+	display: block;
+}
+
+html,
+body {
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+	font-family: inherit;
+}
+
+input::-ms-clear {
+	display: none;
+}
+/* курсор превращается в руку при наведении */
+button {
+	cursor: pointer;
+}
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+/* убираем подчёркивание ссылок */
+a,
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+ul li {
+	list-style: none;
+}
+img {
+	vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-size: inherit;
+	font-weight: 400;
+}
+
+/* Можно отключить маркеры и отступы (отключены в обнуляющем стиле)
+ul, li{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+*/
+
+body {
+	/* скопировали с google.fonts, и смотрим, какого больше, тот и выбираем */
+	font-family: "PT Serif", serif;
+	/* font-family: "Roboto", sans-serif; */
+	/* самый популярный межстрочный интервал в макете */
+	line-height: 18px;
+	/* самый популярный цвет в макете */
+	color: #5e5e5e;
+}
+
+/* подкчёркивание ссылок, которое по умолчанию - убрано в обнуляющем стиле, ссылки должны быть строчно-блочными */
+a {
+	/* text-decoration: none; - есть в обнуляющем стиле */
+	display: inline-block;
+}
+
+/* хедер */
+.header {
+	font-family: "Roboto", sans-serif;
+	/*20px сверху вернули, которые занимает ссылка внутри страницы*/
+	margin: -20px 0 0 0;
+}
+
+.header__top {
+	background-color: #1B121D;
+}
+
+.container {
+	/* адаптивность, чтобы не появился нижний скролл при меньшем экране */
+	max-width: 1170px;
+	/* центрируем */
+	margin: 0 auto;
+	/* чтобы не прилипало к стенкам экрана, который меньше 1170px */
+	padding: 0 15px;
+}
+
+.header__email,
+.header__phone {
+	color: #d3d2d2;
+	/* достали данные из photoshop */
+	letter-spacing: 0.25px;
+	/* приравниваем высоту строки к кнопке height(кнопки)=line-height*/
+	line-height: 45px;
+	/* позиционируем наш иконочный шрифт phone */
+	position: relative;
+}
+
+.header__phone {
+	padding: 0 30px 0 20px;
+}
+
+/* добавляем иконочный шрифт phone из fonts.css */
+.header__phone::before {
+	content: "\f095";
+	font-family: "icomoon";
+	/* позиционируем наш иконочный шрифт phone */
+	position: absolute;
+	left: 0;
+	color: #0099ff;
+}
+
+.header__email {
+	padding: 0 0 0 24px;
+}
+
+/* добавляем иконочный шрифт envelope из fonts.css */
+.header__email::before {
+	content: "\f003";
+	font-family: "icomoon";
+	/* позиционируем наш иконочный шрифт envelope */
+	position: absolute;
+	left: 0;
+	color: #0099ff;
+}
+
+.header__btn {
+	/* float: right Выравнивает элемент по правому краю, а все остальные элементы обтекают его по левой стороне. Не работает для первых родственников display:flex (первых блоков для которых применён display: flex) */
+	float: right;
+	font-size: 16px;
+	line-height: 36px;
+	color: #1b1b1b;
+	background-color: #0099ff;
+	/* height:45px, line-heigh:36px 45-36=9 9=5+4 - это padding сверху и снизу потому что (height)45px=(line-height)36px + 9px(padding)*/
+	padding: 5px 20px 4px 50px;
+	position: relative;
+}
+
+/* добавляем иконочный шрифт briefcase из fonts.css */
+.header__btn::before {
+	content: "\f0b1";
+	font-family: "icomoon";
+	/* позиционируем наш иконочный шрифт briefcase */
+	position: absolute;
+	left: 22px;
+	color: #1b1b1b;
+}
+
+/* если один элемент отправляем куда-то с помощью float(right), то для родителя используется следующее решение */
+.header__contacts:after {
+	content: "";
+	/* clear: both Отменяет обтекание элемента одновременно с правого и левого края.*/
+	clear: both;
+	display: block;
+}
+
+.header__content {
+	/* измеряем по наиболее высокому блоку контента - по меню, а не по логотипу */
+	padding: 34px 0 23px 0;
+	background: #E6F4F6;
+}
+
+
+.header__logo {
+	margin: -20px 0 0 0;
+}
+
+.menu li {
+	/* чтобы пункты menu выстроились в одну строку */
+	display: inline-block;
+}
+
+/* чтобы расположить logo и пункты menu по одной линии*/
+.header__content-inner {
+	display: flex;
+	justify-content: space-between;
+}
+
+.menu a {
+	font-size: 16px;
+	line-height: 36px;
+	color: #323232;
+	/* transparent делает цвет прозрачным, но не убирает его, резервируем место для жёлтой границы при наведении */
+	border: 1px solid transparent;
+	padding: 0 16px 0 16px;
+	/* постепенно меняем цвет при наведении */
+	transition: all 0.6s;
+}
+
+/* меняем цвет границы при наведении */
+.menu a:hover {
+	border: 1px solid #FE1A47;
+}
+
+/* отступ слева, кроме первого элемента(главная) - li+соседи - только для соседей первого li.  */
+.menu li + li {
+	/* 10px - т.к. 16 слева мы уже отступили */
+	padding: 0 0 0 10px;
+}
+
+/* попап */
+#modal {
+	display: none;
+}
+
+/* слайдер */
+.slider {
+    background-image: url(../image/cube/box9.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0px -650px;
+    min-height: 500px;
+}
+
+/* в обнуляющем стиле мы убрали границу outline: none */
+
+.slider__item-content {
+	text-align: center;
+	padding: 110px 0 0 0;
+	/* ширина не должна превышать 660px - ограничиваем ширину по макету */
+	max-width: 665px;
+	margin: 0 auto;
+}
+
+.slider__title {
+	text-transform: uppercase;
+	font-size: 30px;
+	line-height: 36px;
+	font-weight: 500;
+	/* увеличиваем, чтобы было как в макете - заголовок шире текста */
+	letter-spacing: 1.5px;
+	color: #ffffff;
+	margin: 0 0 22px 0;
+	font-family: "Roboto", sans-serif;
+}
+
+.slider__text {
+	font-size: 18px;
+	line-height: 24px;
+	color: #d3d2d2;
+	margin: 0 0 50px 0;
+}
+
+/* кнопка несколько раз повторяется на сайте */
+.default-button {
+	line-height: 24px;
+	font-weight: 500;
+	letter-spacing: 0.25px;
+	color: #ffffff;
+	font-family: "Roboto", sans-serif;
+	/* 40px(height)-24px(line-height)=16px, 16px/2=8px - padding сверху и снизу; 41px(padding справа)-21px(ширина стрелки с фоном)=20px(padding справа) */
+	padding: 8px 20px 8px 20px;
+	border: 1px solid #0099ff;
+	/* ширина жёлтой границы border-справа = ширина стрелки с фоном */
+	border-right-width: 21px;
+	position: relative;
+}
+
+/* добавляем иконочный шрифт angle-right */
+.default-button:after {
+	content: "\f105";
+	font-family: "icomoon";
+	/* позиционируем наш иконочный шрифт angle-right envelope */
+	position: absolute;
+	/* сверху отступ 50% */
+	top: 50%;
+	/* возвращаем на середину - на 50% от своего положения */
+	transform: translateY(-50%);
+	right: -12px;
+	color: #ffffff;
+}
+
+/* позиционируем кнопки слайдера относительно родителя slider__inner */
+.slider__inner {
+	position: relative;
+}
+
+/* общие свойства для класса кнопок, который мы добавили в main.js */
+.slick-btn {
+	/* позиционируем кнопки слайдера относительно родителя slider__inner */
+	position: absolute;
+	/* делаем по макету */
+	top: 70%;
+	/* одна кнопка не нажимается, поэтому добавляем z-index */
+	z-index: 3;
+	/* параметры кнопок слайдера по макету */
+	width: 40px;
+	height: 40px;
+	border: 1px solid #ffffff;
+	/* цвет фона элемента будет выглядеть идентичным цвету фона на его родительском элементе (кнопки прозрачные) */
+	background-color: transparent;
+	/* при наведении на кнопку слайдера, курсор превращается в руку cursor: pointer; - есть в обнуляющем стиле */
+	/* задаём фон кнопок */
+	background-color: #0099ff;
+}
+
+/* стилизируем стрелочки */
+.slick-btn::before {
+	/* позционируем стрелки относительно кнопок слайдера slick-btn */
+	position: absolute;
+	/* стрелка должна быть в центре кнопки */
+	top: 50%;
+	left: 50%;
+	/*translate: 50% - смещение на 50% от своего размера*/
+	transform: translate(-50%, -50%);
+	/* общий стиль стрелок */
+	font-family: "icomoon";
+	/* цвет стрелочек */
+	color: #001;
+}
+
+/* позиционируем кнопку справа */
+.slick-next {
+	right: 0;
+}
+
+/* добавляем стрелочку кнопке справа */
+.slick-next::before {
+	content: "\f105";
+}
+
+/* позиционируем кнопку слева */
+.slick-prev {
+	left: 0;
+}
+
+/* добавляем стрелочку кнопке слева */
+.slick-prev::before {
+	content: "\f104";
+}
+
+/* slick-disabled - стоп при последней прокрутке, взяли из devtools (slick.css.) .class1.class2 - в момент, когда совпадают эти классы, то можно написать отдельные свойства для этого момента
+Когда встречаются slick-disabled-конец прокрутки слайдера и slick-btn-кнопка, то применяются следующие свойства */
+.slick-disabled.slick-btn {
+	/* курсор становится обычным по умолчанию https://webref.ru/css/cursor */
+	cursor: default;
+	/* фон кнопки становится прозрачным */
+	background-color: transparent;
+}
+
+/* наши услуги */
+.services {
+	padding: 30px 0 30px 0;
+	background: #E6F4F6;
+	margin: -20px 0;
+}
+
+.services__top, 
+.news__top {
+	/* Задаём правильное расположение элементам */
+	display: flex;
+	justify-content: space-between;
+	margin: 0 0 60px 0;
+}
+
+/* применяем к частям наши услуги, формы и новости, т.к. они одинаковы */
+.services__title-box,
+.form__title-box, 
+.news__title-box {
+	/* ограничиваем ширину по макету */
+	max-width: 520px;
+	/* резервируем место для жёлтой полосы слева */
+	padding: 0 0 0 140px;
+	/* позиционируем жёлтую полосу слева */
+	position: relative;
+}
+
+/* добавляем жёлтую полосу слева, применяем к частям наши услуги и получить консультацию, т.к. они одинаковы */
+.services__title-box:before,
+.form__title-box::before, 
+.news__title-box:before {
+	content: "";
+	position: absolute;
+	/* позиционируем жёлтую полосу слева */
+	left: 0;
+	top: 11px;
+	width: 106px;
+	height: 2px;
+	background-color: #0099ff;
+}
+
+.services__title,
+.form__title, 
+.news__title {
+	font-family: "Roboto", sans-serif;
+	font-size: 24px;
+	line-height: 24px;
+	font-weight: 500;
+	color: #212020;
+	margin: 0 0 10px 0;
+}
+
+.services__text,
+.form__text, 
+.news__text {
+	/* 0.01em=0.1px, 1em = 1px*10 */
+	letter-spacing: 0.1px;
+}
+
+.services__button a, 
+.news__button a {
+	font-family: "Roboto", sans-serif;
+	line-height: 24px;
+	letter-spacing: 0.25px;
+	color: #373636;
+	border: 1px solid #e6e6e6;
+	/* height=40px, 40px-24px=16px, 16px/2px=8px - padding сверху и снизу */
+	padding: 8px 35px 8px 35px;
+	background: #0099ff;
+}
+
+.services__items {
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+}
+.services__item {
+	max-width: 360px;
+	/* padding вниз 40px + высота кнопки 40px = padding вниз, т.к. позиционируем кнопку и чтобы при увеличеннии контента, он не налез на кнопку */
+	padding: 24px 0 80px 0;
+	background-color: #F7EFF6;
+	box-shadow: 0px 7px 24px 3px rgba(91, 89, 89, 0.14);
+	position: relative;
+	min-height: 366px;
+}
+
+.services__item-title {
+	font-family: "Roboto", sans-serif;
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 500;
+	color: #212020;
+	padding: 27px 0 27px 0;
+}
+
+.services__item-text {
+	letter-spacing: 0.1px;
+	/* примерные значения по макету, подстраиваем значения padding, чтобы текст был как в макете + учитываем позиционирование кнопки и увеличение контента */
+	padding: 0 31px 30px 31px;
+	/* margin-bottom - удаляем, т.к. позиционируем кнопки */
+}
+
+/* позиционируем кнопки, т.к. при их позиция будет зависеть от объема контента, нужно, чтобы 3 кнопки были выстроены по одной линии */
+.services__item-btn {
+	position: absolute;
+	/* кнопка снизу отступает 40px в макете */
+	bottom: 40px;
+	/* left:0, right:0 - центрируем */
+	left: 0;
+	right: 0;
+}
+
+/* свойства default-button в классе services__item-btn  */
+.services__item-btn .default-button {
+	font-family: "Roboto", sans-serif;
+	line-height: 24px;
+	font-weight: 500;
+	letter-spacing: 0.25px;
+	color: #373636;
+}
+
+.services__item-link {
+	font-family: "Roboto", sans-serif;
+	/* т.к. на макете в слове подробнее буква д подчёркивается, а с text-decoration: underline; - нет, то нужно поставить border-bottom:1px solid #050505 вместо text-decoration: underline; */
+	border-bottom: 1px solid #050505;
+	color: #050505;
+	/* подвигаем подчёркивание ближе к слову */
+	line-height: 15px;
+	/* добавляем расстояние между ссылкой и кнопкой */
+	margin: 0 60px 0 0;
+}
+
+/* часть о компании */
+.about {
+	background-image: url(../image/cube/box1.jpg);
+	background-repeat: no-repeat;
+	/* растягиваем фон */
+	background-size: cover;
+	background-position: center;
+	/* Если контент будет увеличиваться, то картинка будет растягиваться, 300px по макету */
+	min-height: 300px;
+	padding: 37px 0 47px 0;
+}
+
+.about__inner {
+	max-width: 642px;
+}
+
+.about__title {
+	font-family: "Roboto", sans-serif;
+	font-size: 24px;
+	line-height: 24px;
+	font-weight: 500;
+	color: #ffffff;
+	margin: 0 0 30px 0;
+}
+
+.about__text {
+	line-height: 34px;
+	letter-spacing: 0.1px;
+	color: #0bff29;
+	margin: 0 0 35px 0;
+	font-size: 16px;
+	font-weight: 600;
+	text-align: justify;
+}
+
+/* меняем цвет стелочки на нужный, как в макете в момент, когда эти классы совпадают, применяются свойства, которые тут заданы*/
+.about__btn.default-button::after {
+	/* content ''; не нужен, т.к. он уже указан в выше в классе default-button */
+	color: #303030;
+}
+
+/* часть form получить консультацию */
+.form {
+	padding: 45px 0 0 0;
+	background: #E6F4F6;
+}
+
+.form__inner {
+	/* 40px отступ снизу до кнопки, т.к. нужно, чтобы женщина была прижата к низу блока */
+	padding: 0 0 40px 0;
+	/* минимальная высота картинки с женщиной */
+	min-height: 460px;
+	/* добавляем картинку с женщиной */
+	background-image: url(../image/fonn.jpg);
+	background-repeat: no-repeat;
+	background-position: bottom right;
+}
+
+/* оболочка для форм */
+.form__box {
+	/* ширина форм */
+	max-width: 850px;
+	padding: 45px 0 0 0;
+}
+
+/* внутренние части формы */
+.form__box-inner {
+	display: flex;
+	justify-content: space-between;
+}
+
+/* делаем внутренние элементы формы блочными, чтобы они выстроились вертикально один под другим, как в макете */
+.form__box-inner label {
+	display: block;
+	font-family: "Roboto", sans-serif;
+	/* line-heigt влияет на расстояние до форм */
+	line-height: 36px;
+	color: #282828;
+}
+
+/*для select задаём дальше вместе с devtools*/
+.form__box-inner input,
+.form__box-inner textarea {
+	border: 1px solid #e6e6e6;
+	/* делаем внутренние элементы формы блочными, чтобы они выстроились вертикально один под другим, как в макете */
+	display: block;
+	/* делаем так, чтобы блоки занимали всю заданную им ширину */
+	width: 100%;
+}
+
+.form__box-inner input:focus,
+.form__box-inner textarea:focus{
+	box-shadow: 0px 2px 11px -1px rgba(255, 0, 0, 0.39);
+}
+
+
+.form__box-inner input {
+	/* т.к. отступ от label сверху и снизу 7px по макету, т.к. у него есть line-height, а в сумме от input до label 17px (по макету), значит чистый отступ от input вниз 17px-7px=10px, учитывая line-height */
+	margin: 0 0 10px 0;
+	height: 40px;
+	/* чтобы текст в форме не прилипал к краям */
+	padding: 0 10px 0 10px;
+}
+
+.form__box-inner select {
+	height: 40px;
+	padding: 0 17px 0 17px;
+}
+
+/* Настраиваем select так, чтобы он занимал всю ширину. Взяли классы из родителя select в devtools formstyler.css, когда встречаются эти два класса, то к ним применятся свойства*/
+.form__box-inner .jq-selectbox.jqselect{
+	display: block;
+	width: 100%;
+}
+
+/*смотрим какой класс дальше в devtools(видит подключенные свойства formstyler.css) и за какие свойства он отвечает, задаём ему свойства, какие нам нужно*/
+.form__box-inner .jq-selectbox__select{
+	height: 40px;
+	border: 1px solid #e6e6e6;
+	padding: 0 0 0 17px;
+	background: #fff;
+}
+
+/*переделываем стрелочку, находим её класс в devtools, после этого отключаем fontstyler.theme.css, чтобы у нас отсалась только наша стрелочкa, которую мы добавляем */
+.form__box-inner .jq-selectbox__trigger-arrow:before{
+	content: "\f105";
+	font-family: 'icomoon';
+	/*у родительного блока в formstyler.theme.css(можно увидеть в devtools) есть position:relative, поэтому мы можем относительно его спозиционировать стрелку*/
+	position: absolute;
+	top: 0px;
+	right: 17px;
+	/*поворачиваем стрелку*/
+	transform: rotate(90deg);
+}
+
+/*Работаем над внутренностями select, чобы привести его в порядок, скопировали из formstyler.theme.css и подделали под свой вариант, лишнее убрали, а затем formstyler.theme.css отключили и получили наш вариант, посмотрели*/
+.form__box-inner .jq-selectbox__dropdown {
+	width: 100%;
+	margin: 2px 0 0;
+	padding: 0 0 0 10px;
+	border: 1px solid #e6e6e6;
+	/*цвет фона*/
+	background: #FFF;
+	box-shadow: 0 2px 10px rgba(0,0,0,.2);
+}
+
+/*Работаем над внутренностями select, чобы привести его в порядок, нашли элемент в devtools, который отвечает за свойства, скопировали из formstyler.theme.css и подделали под свой вариант, а затем formstyler.theme.css отключили и получили наш вариант, посмотрели, после этого файл formstyler.theme.css можно удалить */
+.form__box-inner .jq-selectbox li {
+	min-height: 18px;
+	padding: 5px 10px 6px;
+	/*цвет полос*/
+	color: #231F20;
+}
+.form__box-inner .jq-selectbox li.selected {
+	background-color: #A3ABB1;
+	color: #FFF;
+}
+.form__box-inner .jq-selectbox li:hover {
+	background-color: #08C;
+	color: #FFF;
+}
+
+.form__box-inner textarea {
+	padding: 10px;
+	/* по макету, чтобы конец был на одной высоте с концом одного из input */
+	height: 210px;
+	margin: 0 0 45px 0;
+	/* отключаем возможность изменять размеры */
+	resize: none;
+}
+
+.form__box-left {
+	max-width: 264px;
+	/* делаем так, чтобы блоки занимали всю заданную им ширину */
+	width: 100%;
+}
+
+.form__box-right {
+	max-width: 557px;
+	/* делаем так, чтобы блоки занимали всю заданную им ширину */
+	width: 100%;
+}
+
+.form__box-inner button {
+	color: #282828;
+	/* делаем фон кнопки прозрачным */
+	background: transparent;
+	/*прибиваем кнопку к правому краю*/
+	float: right;
+}
+
+/* меняем цвет стрелки */
+.form__box-inner button::after {
+	color: #282828;
+}
+
+/*часть advantages*/
+
+.advantages {
+	padding: 55px 0 40px 0;
+	background-image: url(../image/fon3.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	min-height: 287px;
+}
+
+.advantages__inner {
+	color: #ffffff;
+	display: flex;
+	justify-content: space-between;
+	text-align: center;
+}
+
+.advantages__item {
+	max-width: 360px;
+	padding: 0 20px 0 20px;
+}
+
+.advantages__title {
+	font-size: 18px;
+	line-height: 24px;
+	/*резервируем место для квадрата выше и отступаем снизу 15px примерно, т.к. у него еще line-height есть*/
+	padding: 60px 0 15px 0;
+	font-family: "Roboto", sans-serif;
+	/*позиционируем квадрат и стрелку*/
+	position: relative;
+}
+
+.advantages__text {
+	line-height: 24px;
+	letter-spacing: 0.1px;
+	color: #d3d2d2;
+}
+
+/*добавляем квадрат*/
+.advantages__title:before {
+	content: '';
+	width: 40px;
+	height: 40px;
+	border: 2px solid #0099ff;
+	position: absolute;
+	/*квардрат станет вначале сверху блока там, где мы сохранили для него место*/
+	top: 0;
+	left: 50%;
+	/*квардрат смещается влево на половину от своего текущего положения*/
+	transform: translateX(-50%);
+}
+
+/*добавляем стрелочку в квадрат*/
+.advantages__title:after {
+	content: "\f00c";
+	font-family: 'icomoon';
+	color: #ffffff;
+	position: absolute;
+	top: 9px;
+	left: 50%;
+	font-size: 14px;
+	/*стрелка смещается влево на половину от своего текущего положения*/
+	transform: translateX(-50%);
+}
+
+/*Часть новости компании*/
+
+.news {
+	padding: 60px 0 110px 0;
+	background: #E6F4F6;
+}
+
+.news__inner {
+	display: flex;
+	justify-content: space-between;
+}
+
+.news__slider {
+	max-width: 554px;
+	/*чтобы занимал указанную ширину*/
+	width: 100%;
+	background: #ffffff;
+	box-shadow: 0px 5px 15px 1px rgba(128,127,127,0.12);
+	padding: 60px 35px 45px 70px;
+	/*позиционирование ковычек*/
+	position: relative;
+}
+
+/*делаем ковычки*/
+.news__slider:before{
+	content: "\f10e";
+	font-family: 'icomoon';
+	position: absolute;
+	top: 0;
+	/*70px по умолчанию, т.к. у родителя есть отступ слева 70px*/
+	left: 70px;
+	font-size: 16px;
+	letter-spacing: 0.5px;
+	color: #ffffff;
+	width: 65px;
+	height: 31px;
+	background-color: #0099ff;
+	/*ставим ковычки по центру, height = 31px, по 15px сверху и снизу*/
+	line-height: 30px;
+	text-align: center;
+}
+
+
+.news__slider-title {
+	font-family: "Roboto", sans-serif;
+	font-size: 18px;
+	line-height: 24px;
+	letter-spacing: 0.5px;
+	color: #242424;
+	/*14 px , из-за line-height*/
+	margin: 0 0 14px 0;
+}
+
+.news__slider-text {
+	letter-spacing: 0.1px;
+	margin: 0 0 30px 0;
+	font-size: 20px;
+	line-height: 24px;
+}
+.news__slider-author {
+	font-family: "Roboto", sans-serif;
+	letter-spacing: 0.1px;
+	color: #212020;
+	font-style: italic;
+}
+
+.news__blog {
+	max-width: 262px;
+	width: 100%;
+}
+
+.news__image {
+	/*чтобы спозиционировать цифры вверху картинки*/
+	position: relative;
+	margin: 0 0 20px 0;
+}
+
+.news__image img{
+	max-width: 100%;
+}
+
+.news__date {
+	position: absolute;
+	top: 0px;
+	left: 10px;
+	font-weight: 700;
+	color: #f9f9f9;
+	background: #0099ff;
+	padding: 30px 0 0 0;
+	text-align: center;
+	width: 47px;	
+	height: 54px;
+	opacity: 0.8;
+}
+
+.news__blog-title {
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	line-height: 18px;
+	font-weight: 500;
+	letter-spacing: 0.5px;
+	color: #242424;
+	margin: 0 0 17px 0;
+}
+
+
+.news__blog-text {
+	letter-spacing: 0.1px;
+	color: #5e5e5e;
+}
+
+/*стилизируем кнопки слайдера*/
+.news__slider-inner .slick-btn{
+	/*переорпеделяем через devtools*/
+	top: auto;
+	/*-85(devtools в плотную к верхнему блоку)+(-35)(по макету отступ от верхнего блока)*/
+	bottom: -120px;
+}
+
+.news__slider-inner .slick-next{
+	/*по devtools подобрали*/
+	right: -35px;
+}
+
+.news__slider-inner .slick-prev{
+	/*делаем кнопку prev слева от кнопки next*/
+	left: auto;
+	/*отступаем от кнопки next слева, как в макете*/
+	right: 20px;
+}
+
+/*меняем цвет кнопок при окончании прокрутки, если внутри класса news__slider-inner появляется slick-disabled */
+.news__slider-inner .slick-disabled{
+	background: #f9f9f9;
+	border: 1px solid #dadada;
+}
+
+/*меняем цвет стрелок в кнопках при окончании прокрутки*/
+.news__slider-inner .slick-disabled:before{
+	color: #908e8e;
+}
+
+
+
+.audio {
+	text-align: center;
+	background: #E6F4F6;
+	margin: -100px 0 0 0;
+	padding-bottom: 100px;
+}
+
+/*часть footer*/
+.footer {
+	font-family: "Roboto", sans-serif;
+	/*возвращаем место, которое занимает ссылка внутри страницы*/
+	margin: -20px 0 0 0;
+}
+
+.footer__content {
+	background: #1B121D;
+	padding: 29px 0 37px 0;
+}
+
+.footer__inner {
+	display: flex;
+	justify-content: space-between;
+}
+
+.footer__info {
+	max-width: 360px;
+}
+
+.footer__title {
+	font-size: 16px;
+	line-height: 36px;
+	/*учитывая line-height*/
+	margin: 0 0 2px 0;
+	font-weight: 500;
+	letter-spacing: 0.5px;
+	color: #ffffff;
+}
+
+.footer__text {
+	color: #d3d2d2;
+	margin: 0 0 20px 0;
+}
+
+.footer__list a {
+	color: #ffffff;
+	line-height: 36px;
+	letter-spacing: 0.25px;
+	/*резервируем место для значков*/
+	padding: 0 0 0 33px;
+	position: relative;
+}
+
+/*добавляем иконочные шрифты*/
+.footer__list a:before{
+	content: '';
+	content: "\f003";
+	font-family: 'icomoon';
+	position: absolute;
+	left: 0;
+	top: 5px;
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: 0.25px;
+	color: #0099ff;
+}
+
+/*чтобы приоритет записи был высоким, сначала записываем родительский класс*/
+.footer__list .footer__phone:before {
+	content: "\f095";
+	left: 3px;
+}
+
+.footer__list .footer__address:before {
+	content: "\f041";
+	left: 3px;
+}
+
+.footer__map {
+	/*10px это разница в высоте между текстом слева и картой*/
+	padding: 10px 0 0 0;
+	width: 100%;
+	max-width: 632px;
+}
+
+.footer__map iframe {
+	width: 100%;
+	height: 251px;
+}
+
+/*настраиваем кнопку*/
+.footer__inner .header__btn{
+	/*чтобы она не растягивалась на всю ширину блока*/
+	display: inline-block;
+	/*убираем прижатие к правому краю*/
+	float: none;
+	margin: 0 0 20px 0;
+}
+
+.footer__copy {
+	background: #13191A;
+}
+
+/*либо так, либо с помощью flex+height без padding*/
+.copy__text {
+	font-size: 12px;
+	line-height: 24px;
+	letter-spacing: 0.5px;
+	color: #ffffff;
+	text-align: center;
+	padding: 8px 0 8px 0;
+}
+
+/*стилизуем форму открывающейся кнопки*/
+#modal{
+	/*300px для того, чтобы на мобильном телефоне можно было увидеть*/
+	width: 300px;
+	background: #F0ECD1;
+}
+
+#modal input{
+	display: block;
+	width: 100%;
+	margin: 0 0 20px 0;
+	height: 40px;
+	border: 1px solid #e6e6e6;
+	padding: 0 10px;
+	font-family: "Roboto", sans-serif;
+	color: #AB3C23;
+	background: #F0F5BB;
+	border-radius: 10px;
+}
+
+/*обращаемся к кнопке отправить через type*/
+#modal input[type="submit"]{
+	background: #0099ff;
+	border:none;
+	color: #350710;
+	text-transform: uppercase;
+	font-weight: 500;
+	font-size: 20px;
+	letter-spacing: 2px;
+	border-radius: 10px;
+}
+
+#modal input:focus{
+	box-shadow: 1px 1px 17px 4px rgba(234, 48, 221, 0.82);
+}
+
+/*скрываем бургер меню, раскроем в медиа при меньших экранах*/
+.header__btn-menu{
+	display: none;
+}
+
+.gallery {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background: #E6F4F6;
+  overflow: hidden;
+}
+.scope {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  transform-style: preserve-3d;
+  animation: slid 15s linear infinite;
+}
+
+.scope span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transform: rotateY(calc(var(--i) * 45deg)) translateZ(350px);
+}
+.scope span img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+  object-position: 0 0;
+  transition: 2s;
+}
+
+
+.scope span:hover img {
+  transform: translateY(-20px) scale(1.2);
+}
+@keyframes slid {
+  0% {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  100% {
+    transform: perspective(1000px) rotateY(360deg);
+  }
+}

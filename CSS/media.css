@@ -1,0 +1,273 @@
+/*адаптивность сайта - медиазапросы*/
+/*работаем с самым верхним блоком в html, остальное - комментируем и далее*/
+/*В медиазапросах нужно прописывать всё по величинам
+  max-width - от самых высоких значений до самых низких
+  min-widht - от самых низких значений до самых высоких */
+  /* все значения ширин указываются в max-width или mid-width*/
+  /*минимальная ширина - 320px*/
+  /*после 650 идёт перестройка. на экранах меньше 700px*/
+
+
+  @media (max-width: 1150px){
+   .services__item{
+      max-width: 80%;
+      min-height: 330px;
+      /*центрируем*/
+      margin: 30px auto;
+   }
+   .services__items{
+      display: block;
+   }
+   .form__inner{
+      /*убираем женщину*/
+      background-image: none;
+   }
+}
+
+@media (max-width: 1050px){
+   .footer__inner{
+      display: block;
+   }
+   .footer__map{
+      /*растягиваем карту по ширине*/
+      max-width: 100%;
+   }
+   .footer__info{
+      /*ширина*/
+      max-width: 460px;
+      /*отступ до карты*/
+      margin: 0 0 20px 0;
+   }
+}
+
+@media (max-width: 900px){
+   /*убираем кнопки слайдера*/
+   .slider .slick-btn{
+      display: none;
+   }
+
+   .services__top{
+      display: block;
+   }
+
+   /*стили для нескольких одинакое блоков*/
+   .services__title-box, .form__title-box, .news__title-box{
+      padding: 0;
+      text-align: center;
+      /*центрируем и отсупаем снизу*/
+      margin: 0 auto 30px auto;
+   }
+
+   /*убираем жёлтую линию для нескольких блоков, т.к. они одинаковые*/
+   .services__title-box:before, .form__title-box:before, .news__title-box:before {
+      display: none;
+   }
+
+   .services__button, .news__button{
+      text-align: center;
+   }
+
+   .form__box-inner{
+      display: block;
+   }
+   .form__box-left {
+      /* делаем так, чтобы блоки занимали всю заданную им ширину */
+      max-width: 100%;
+   }
+
+   .form__box-right {
+      /* делаем так, чтобы блоки занимали всю заданную им ширину */
+      max-width: 100%;
+   }
+
+   .form__box-inner .jq-selectbox__select{
+      margin: 0 0 10px 0;
+   }
+
+   .form{
+      padding: 45px 0 30px 0;
+   }
+
+   .advantages__inner{
+      display: block;
+   }
+
+   .advantages__item{
+      max-width: 100%;
+      margin: 0 0 30px 0;
+   }
+
+   .news__inner{
+      display: block;
+   }
+
+   .news__slider{
+      max-width: 100%;
+   }
+
+   .news__slider{
+      margin: 0 0 90px 0;
+   }
+
+   .news__blog{
+      max-width: 100%;
+      display: block;
+      margin: 0 0 30px 0;
+   }
+
+   .news__image{
+      float: left;
+      margin: 0 20px 0 0;
+   }
+
+   /*решение родителя для float*/
+   .news__blog:after{
+      content: '';
+      clear: both;
+      display: block;
+   }
+
+   .news__top{
+      display: block;
+   }
+
+   .news{
+     padding: 60px 0 40px 0;
+  }
+} 
+
+@media (max-width: 700px){
+   /*на экранах меньше 700px, применяются следующие свойства, чтобы было всё удобным в пользовании */
+   .header__btn{
+      float: none;
+      display: block;
+      margin: 0 -14px;
+   }
+
+   .header__contacts{
+      text-align: center;
+   }
+
+   .header__top .header__btn:before{
+      /*элемент удаляется из дерева доступности, удаляем портфель в header - он плохо смотрится*/
+      display: none;
+   }
+
+   /*скрываем список меню, вместо него будет бургер*/
+   .menu ul{
+      display: none;
+      /*позиционируем меню, которое выпадает (main.js) слева*/
+      position: absolute;
+      /*начало начнается вначале*/
+      left: 0;
+      /*заканчивается в конце*/
+      right: 0;
+      /*отступаем сверху*/
+      margin: 20px 0 0 0;
+      /*чтобы в случае наложения выпадающего меню на другой контент, меню было видно*/
+      z-index: 50;
+   }
+
+   .header__btn-menu{
+      /*отображаем бургер-меню, в style.css он спрятан*/
+      display: block;
+      /*увеличием бургер-меню в размерах*/
+      font-size: 28px;
+      padding: 10px;
+   }
+
+   .menu li{
+      /*делаем так, чтобы элементы выстроились по вертикали*/
+      display: block;
+      /*выравниваем элементы по середине*/
+      text-align: center;
+   }
+
+   .menu a{
+      /*чтобы каждый элемент был блочным и занимал всю ширину страницы*/
+      display: block;
+      background: #ffcc22;
+      /*добавляем границы*/
+      border-top: 1px solid #fff;
+      border-bottom: : 1px solid #fff;
+   }
+
+   .menu li + li{
+      /*убираем отступы слева*/
+      padding: 0 0 0 0;
+   }
+}
+
+@media (max-width: 600px){
+   .services__item{
+      max-width: 100%;
+      min-height: 360px;
+      /*центрируем*/
+      margin: 30px auto;
+   }
+}
+
+@media (max-width: 500px){
+   .news__slider{
+      padding: 50px 15px 28px 28px;
+   }
+
+   .news__slider:before{
+      /*т.к. padding слева у блока 28px*/
+      left:28px;
+   }
+
+   .news__slider-inner .slick-prev{
+      right: 35px;
+   }
+
+   .news__slider-inner .slick-next{
+      right: -20px;
+   }
+
+   .news__image{
+      float: none;
+   }
+   /*чтобы кнопки не налазили на другой блок*/
+   .news__slider-inner .slick-btn{
+      bottom: -90px;
+   }
+
+
+}
+
+@media (max-width: 414px){
+   .slider__title{
+      font-size: 24px;
+   } 
+}
+
+@media (max-width: 400px){
+   .header__btn:before{
+      /*возвращаем портфель*/
+      display: block;
+   }
+
+   .slider__text{
+      font-size: 16px;
+   } 
+
+   .header__email{
+      /*выравниваем почту с телефоном по середине*/
+      padding: 0px 20px 0 24px;
+   }
+
+   .advantages__item{
+      padding: 0;
+   }
+}
+
+/*на экранах больше 700px*/
+@media (min-width: 700px){
+   /*на экранах больше 700px покажется меню список (до этого свойства оно скрывалось) */
+   .menu ul{
+      /*!important повышает приоритет стиля*/
+      display: block !important;
+   }
+}
+
